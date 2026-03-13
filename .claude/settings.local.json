@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"/c/Users/Mindy/OneDrive - NTHU/paper/CB/hidden-pet-persuasion\" && npm create vite@latest . -- --template react 2>&1 | tail -20)",
+      "Bash(cd \"/c/Users/Mindy/OneDrive - NTHU/paper/CB/hidden-pet-persuasion\" && npm init vite@latest quiz-app -- --template react 2>&1 | tail -20)",
+      "Bash(cd \"/c/Users/Mindy/OneDrive - NTHU/paper/CB/hidden-pet-persuasion/quiz-app\" && npm install && npm install tailwindcss @tailwindcss/vite framer-motion react-router-dom 2>&1 | tail -10)",
+      "Bash(cd \"/c/Users/Mindy/OneDrive - NTHU/paper/CB/hidden-pet-persuasion/quiz-app\" && npm run build 2>&1 | grep -E \"\\(error|warn|built|✓\\)\")"
+    ]
+  }
+}

@@ -22,21 +22,21 @@ export default function ResultPage() {
       {/* Capturable area for image sharing */}
       <div ref={captureRef} className="w-full flex flex-col gap-6 bg-cream p-4 rounded-3xl">
         <FadeIn>
-          <p className="text-warmBrown/50 text-sm text-center">測驗結果出爐！</p>
+          <p className="text-warmBrown/50 text-sm text-center">Quiz Result!</p>
         </FadeIn>
 
         <ResultCard result={result} />
 
         <RevealSection petType={petType} />
 
-        <p className="text-warmBrown/30 text-xs text-center">🔗 你的消費潛意識測驗</p>
+        <p className="text-warmBrown/30 text-xs text-center">🔗 The Hidden Consumer Traits Quiz</p>
       </div>
 
       <ShareButtons resultType={result.type} captureRef={captureRef} />
 
       <FadeIn delay={1.4}>
         <Button variant="ghost" onClick={() => navigate('/')}>
-          再測一次
+          Retake Quiz
         </Button>
       </FadeIn>
     </PageContainer>

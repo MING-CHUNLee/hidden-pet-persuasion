@@ -22,10 +22,10 @@ export default function ShareButtons({ resultType, captureRef }) {
 
       // Try native share (mobile) first
       if (navigator.share && navigator.canShare?.({ files: [new File([blob], 'result.png', { type: 'image/png' })] })) {
-        const file = new File([blob], '消費潛意識測驗結果.png', { type: 'image/png' })
+        const file = new File([blob], 'my_quiz_result.png', { type: 'image/png' })
         await navigator.share({
-          title: '我的消費潛意識測驗結果',
-          text: `我在「消費潛意識測驗」中測出我是「${resultType}」！你也來測測看吧！`,
+          title: 'My Hidden Consumer Traits Quiz Result',
+          text: `I just took the Hidden Consumer Traits Quiz and I got "${resultType}"! Come find out yours!`,
           files: [file],
         })
       } else {
@@ -33,7 +33,7 @@ export default function ShareButtons({ resultType, captureRef }) {
         const url = URL.createObjectURL(blob)
         const a = document.createElement('a')
         a.href = url
-        a.download = '消費潛意識測驗結果.png'
+        a.download = 'my_quiz_result.png'
         document.body.appendChild(a)
         a.click()
         document.body.removeChild(a)
@@ -86,25 +86,25 @@ export default function ShareButtons({ resultType, captureRef }) {
       transition={{ delay: 1.2 }}
       className="w-full"
     >
-      <p className="text-warmBrown/60 text-sm mb-3 text-center">分享給朋友一起測</p>
+      <p className="text-warmBrown/60 text-sm mb-3 text-center">Share with friends</p>
       <div className="flex flex-col gap-2">
         <button
           onClick={handleSaveImage}
           disabled={saving}
           className={`${btnClass} bg-milk text-white hover:bg-warmBrown shadow-md ${saving ? 'opacity-60' : ''}`}
         >
-          {saving ? '產生圖片中⋯' : saved ? '已儲存！✓' : '📷 儲存結果圖片'}
+          {saving ? 'Generating...' : saved ? 'Saved! ✓' : '📷 Save Result Image'}
         </button>
         <button
           onClick={handleCopyImage}
           disabled={saving}
           className={`${btnClass} bg-white text-warmBrown border-2 border-milk hover:bg-softPink ${saving ? 'opacity-60' : ''}`}
         >
-          {saving ? '處理中⋯' : '📋 複製圖片到剪貼簿'}
+          {saving ? 'Processing...' : '📋 Copy Image to Clipboard'}
         </button>
       </div>
       <p className="text-warmBrown/40 text-xs mt-3 text-center">
-        儲存圖片後即可分享到 LINE、IG 限動、Facebook 等
+        Save the image to share it on Instagram, Facebook, WhatsApp, etc.
       </p>
     </motion.div>
   )

@@ -16,7 +16,7 @@ export default function ResultCard({ result }) {
         {result.emoji}
       </motion.div>
       <h2 className="text-2xl font-bold text-warmBrown mb-4">
-        你是⋯⋯{result.type}！
+        You are a... {result.type}!
       </h2>
       <p className="text-warmBrown/80 leading-relaxed mb-4">
         {result.description}

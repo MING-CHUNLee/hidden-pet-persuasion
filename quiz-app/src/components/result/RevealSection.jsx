@@ -10,7 +10,7 @@ export default function RevealSection({ petType }) {
       className="bg-white/70 rounded-3xl p-6 w-full"
     >
       <h3 className="text-lg font-bold text-warmBrown mb-3 flex items-center gap-2">
-        <span>🔍</span> 背後的科學秘密
+        <span>🔍</span> The Science Behind It
       </h3>
 
       <p className="text-warmBrown/90 leading-relaxed mb-4">

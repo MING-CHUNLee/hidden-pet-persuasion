@@ -11,30 +11,30 @@ import { useQuiz } from '../hooks/useQuiz'
 const narratives = {
   dog: {
     step2: {
-      text: '牠興奮地跳來跳去，用鼻子蹭你的手，搖著尾巴渴望你的關注與讚美！',
-      button: '摸摸牠',
+      text: 'It jumps around excitedly, giving your hand a soft nudge with its nose, tail wagging eagerly for your attention!',
+      button: 'Pet',
       icon: '✋',
-      reaction: '牠開心地蹭了蹭你的手，尾巴搖得更快了！',
+      reaction: 'It happily nuzzles your hand, tail wagging even faster!',
     },
     step3: {
-      text: '牠開心地接住你丟出的球，迫不及待地跑回來等你再丟一次！',
-      button: '和牠玩',
-      icon: '🎾',
-      reaction: '牠叼著球跑回來，眼神充滿期待地看著你！',
+      text: 'It watches the hose in your hand with excitement, bouncing around and ready to catch some refreshing blasts of water!',
+      button: 'Spray water',
+      icon: '💦',
+      reaction: 'Wow! It excitedly snaps at the splashing water, completely soaked and loving every second of it!',
     },
   },
   cat: {
     step2: {
-      text: '牠警覺地觀察著你的每個動作，小心翼翼地確認安全後，才慢慢靠近你的指尖。',
-      button: '摸摸牠',
+      text: 'It watches your every move alertly. After cautiously confirming it\'s safe, it slowly approaches your fingertips.',
+      button: 'Pet',
       icon: '✋',
-      reaction: '牠猶豫了一下，最後輕輕用頭蹭了蹭你的手指⋯⋯',
+      reaction: 'It hesitates for a moment, then gently rubs its head against your fingers...',
     },
     step3: {
-      text: '牠小心翼翼地聞了聞你手上的零食，確認沒有危險後才輕輕叼走。',
-      button: '餵牠',
-      icon: '🍖',
-      reaction: '牠滿足地瞇起了眼睛，發出了小小的呼嚕聲⋯⋯',
+      text: 'You bring out some warm milk. Its ears immediately perk up, eyes shining with eager anticipation.',
+      button: 'Pour milk',
+      icon: '🥛',
+      reaction: 'Watching it eagerly lap up the milk while purring in sheer contentment is just so heartwarming!',
     },
   },
 }
@@ -45,7 +45,8 @@ export default function PetInteractionPage() {
   const navigate = useNavigate()
   const { petType, selectedPetIndex, setSelectedPetIndex } = useQuiz()
 
-  const petName = petType === 'dog' ? '狗狗' : '貓咪'
+  const petName = petType === 'dog' ? 'dog' : 'cat'
+  const petNamePlural = petType === 'dog' ? 'dogs' : 'cats'
   const story = narratives[petType] || narratives.dog
 
   const handleGallerySelect = (index) => {
@@ -54,14 +55,15 @@ export default function PetInteractionPage() {
   }
 
   const handleInteraction = (nextStep) => {
+    if (nextStep === 'done') {
+      setStep('video')
+      return
+    }
+
     setShowReaction(true)
     setTimeout(() => {
       setShowReaction(false)
-      if (nextStep === 'done') {
-        navigate('/quiz')
-      } else {
-        setStep(nextStep)
-      }
+      setStep(nextStep)
     }, 1800)
   }
 
@@ -78,10 +80,10 @@ export default function PetInteractionPage() {
           >
             <FadeIn>
               <h2 className="text-2xl font-bold text-warmBrown mb-2">
-                門後面是{petName}！
+                There's a {petName} behind the door!
               </h2>
               <p className="text-warmBrown/60 mb-6">
-                這裡有三隻{petName}，選擇你最想互動的那一隻
+                Here are three {petNamePlural}, choose the one you'd love to interact with most
               </p>
             </FadeIn>
             <FadeIn delay={0.3}>
@@ -169,6 +171,38 @@ export default function PetInteractionPage() {
                 {petType === 'dog' ? '🎉' : '😺'}
               </motion.div>
             )}
+          </motion.div>
+        )}
+
+        {step === 'video' && (
+          <motion.div
+            key="video"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="w-full flex flex-col items-center"
+          >
+            <div className="bg-white/60 rounded-2xl p-5 my-6 max-w-sm w-full mx-auto">
+              <p className="text-warmBrown leading-relaxed mb-4">
+                {story.step3.reaction}
+              </p>
+              <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden shadow-lg mx-auto bg-black/5">
+                <iframe
+                  src={`https://www.youtube.com/embed/${petType === 'dog' ? 'bwPEI9EGlE8' : 'SPjMp9OTBE0'}?autoplay=1`}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="absolute top-0 left-0 w-full h-full"
+                ></iframe>
+              </div>
+            </div>
+
+            <InteractionButton
+              label="Start Quiz"
+              icon="➡️"
+              onClick={() => navigate('/quiz')}
+            />
           </motion.div>
         )}
       </AnimatePresence>

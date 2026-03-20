@@ -2,14 +2,14 @@ import { motion } from 'framer-motion'
 
 export const petData = {
   dog: [
-    { emoji: '🐶', name: '小柴柴',  bg: '#FFF3D6', ring: '#E8C07A' },
-    { emoji: '🦮', name: '大金毛',  bg: '#FFF0D8', ring: '#F0A860' },
-    { emoji: '🐩', name: '捲捲',    bg: '#FFF8F4', ring: '#D4A574' },
+    { emoji: '🐶', name: 'Shiba',   bg: '#FFF3D6', ring: '#E8C07A' },
+    { emoji: '🦮', name: 'Golden',  bg: '#FFF0D8', ring: '#F0A860' },
+    { emoji: '🐩', name: 'Poodle',  bg: '#FFF8F4', ring: '#D4A574' },
   ],
   cat: [
-    { emoji: '🐱', name: '灰灰',    bg: '#F2F4F8', ring: '#A8B4C0' },
-    { emoji: '🐈', name: '橘橘',    bg: '#FFF4E6', ring: '#F0A850' },
-    { emoji: '😻', name: '甜甜',    bg: '#FFF0F4', ring: '#F0A0B8' },
+    { emoji: '🐱', name: 'Ash',     bg: '#F2F4F8', ring: '#A8B4C0' },
+    { emoji: '🐈', name: 'Ginger',  bg: '#FFF4E6', ring: '#F0A850' },
+    { emoji: '😻', name: 'Sweetie', bg: '#FFF0F4', ring: '#F0A0B8' },
   ],
 }
 

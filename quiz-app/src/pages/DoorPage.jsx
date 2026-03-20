@@ -28,10 +28,10 @@ export default function DoorPage() {
     <PageContainer className="justify-center text-center">
       <FadeIn>
         <h2 className="text-2xl font-bold text-warmBrown mb-2">
-          眼前出現了一扇神秘的門⋯⋯
+          A mysterious door appears before you...
         </h2>
         <p className="text-warmBrown/60 mb-10">
-          {isOpen ? '門開了！裡面有什麼呢？' : '點一下，看看門後藏著什麼？'}
+          {isOpen ? "The door is opening! What's inside?" : "Tap to see what's hidden behind the door."}
         </p>
       </FadeIn>
 
@@ -40,7 +40,7 @@ export default function DoorPage() {
       {!isOpen && (
         <FadeIn delay={0.5}>
           <p className="text-warmBrown/40 text-sm mt-8 animate-pulse">
-            👆 點擊門來開啟
+            👆 Tap the door to open
           </p>
         </FadeIn>
       )}

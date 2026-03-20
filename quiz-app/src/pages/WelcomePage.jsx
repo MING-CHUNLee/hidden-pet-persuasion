@@ -27,38 +27,38 @@ export default function WelcomePage() {
 
       <FadeIn>
         <h1 className="text-3xl sm:text-4xl font-bold text-warmBrown mb-4 leading-tight">
-          你的消費潛意識測驗
+          The Hidden Consumer Traits Quiz
         </h1>
       </FadeIn>
 
       <FadeIn delay={0.2}>
         <p className="text-warmBrown/70 text-lg leading-relaxed mb-2">
-          你有沒有想過，一次看似無關的互動，
+          Have you ever wondered if a seemingly unrelated interaction
         </p>
         <p className="text-warmBrown/70 text-lg leading-relaxed mb-8">
-          可能悄悄改變了你的消費決策？
+          could quietly alter your shopping decisions?
         </p>
       </FadeIn>
 
       <FadeIn delay={0.4}>
         <div className="bg-white/60 rounded-2xl p-5 mb-8 max-w-sm">
           <p className="text-warmBrown/60 text-sm leading-relaxed">
-            這是一個簡短的互動測驗，只需要 2 分鐘。
+            This is a short interactive quiz that takes just 2 minutes.
             <br />
-            測完之後，你會發現一個有趣的消費心理學秘密！
+            Once finished, you'll discover a fascinating secret of consumer psychology!
           </p>
         </div>
       </FadeIn>
 
       <FadeIn delay={0.6}>
         <Button onClick={handleStart}>
-          開始測驗 →
+          Start Quiz →
         </Button>
       </FadeIn>
 
       <FadeIn delay={0.8}>
         <p className="text-warmBrown/30 text-xs mt-8">
-          ※ 不收集任何個人資料，純屬娛樂與教育用途
+          ※ No personal data is collected. For entertainment and educational purposes only.
         </p>
       </FadeIn>
     </PageContainer>

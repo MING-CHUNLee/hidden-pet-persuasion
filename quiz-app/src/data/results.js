@@ -1,14 +1,14 @@
 export const results = {
   promotion: {
     type: 'Bold Adventurer',
-    emoji: '🚀',
+    emoji: '🚀🐕',
     description:
       "Your shopping style is full of adventurous spirit! You tend to seek novelty, embrace new opportunities, and aren't afraid to step into the unknown. When shopping, you are often drawn to buzzwords like 'Limited Edition', 'Brand New', and 'Groundbreaking'.",
     traits: ['Seeks Novelty', 'Embraces Risk', 'Values Growth'],
   },
   prevention: {
     type: 'Cautious Guardian',
-    emoji: '🛡️',
+    emoji: '🛡️🐈',
     description:
       "Your shopping style prioritizes stability and security! You tend to carefully evaluate options, avoid risks, and prefer guaranteed choices. When shopping, you are often drawn to buzzwords like 'Classic Choice', 'Highly Rated', and 'Quality Guaranteed'.",
     traits: ['Values Stability', 'Evaluates Risks', 'Prefers Guarantees'],

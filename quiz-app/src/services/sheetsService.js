@@ -9,6 +9,7 @@ export async function submitToSheets({ nickname, petType, quizResult, answers })
   try {
     await fetch(ENDPOINT, {
       method: 'POST',
+      mode: 'no-cors',
       headers: { 'Content-Type': 'text/plain' },
       body: JSON.stringify({ nickname, petType, quizResult, answers }),
     })

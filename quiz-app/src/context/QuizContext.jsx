@@ -3,6 +3,7 @@ import { createContext, useState, useCallback } from 'react'
 export const QuizContext = createContext()
 
 export function QuizProvider({ children }) {
+  const [nickname, setNickname] = useState('')
   const [petType, setPetType] = useState(null) // 'dog' | 'cat'
   const [selectedPetIndex, setSelectedPetIndex] = useState(null)
   const [answers, setAnswers] = useState([])
@@ -12,6 +13,7 @@ export function QuizProvider({ children }) {
   }, [])
 
   const reset = useCallback(() => {
+    setNickname('')
     setPetType(null)
     setSelectedPetIndex(null)
     setAnswers([])
@@ -25,6 +27,8 @@ export function QuizProvider({ children }) {
   return (
     <QuizContext.Provider
       value={{
+        nickname,
+        setNickname,
         petType,
         setPetType,
         selectedPetIndex,

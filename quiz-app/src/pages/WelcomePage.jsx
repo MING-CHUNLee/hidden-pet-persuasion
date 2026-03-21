@@ -11,7 +11,7 @@ export default function WelcomePage() {
 
   const handleStart = () => {
     reset()
-    navigate('/door')
+    navigate('/nickname')
   }
 
   return (

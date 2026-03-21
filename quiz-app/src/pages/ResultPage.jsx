@@ -1,5 +1,6 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { submitToSheets } from '../services/sheetsService'
 import PageContainer from '../components/layout/PageContainer'
 import ResultCard from '../components/result/ResultCard'
 import RevealSection from '../components/result/RevealSection'
@@ -11,11 +12,18 @@ import { useQuiz } from '../hooks/useQuiz'
 
 export default function ResultPage() {
   const navigate = useNavigate()
-  const { getResult, petType } = useQuiz()
+  const { nickname, getResult, petType, answers } = useQuiz()
   const captureRef = useRef(null)
+  const submitted = useRef(false)
 
   const resultType = getResult()
   const result = results[resultType]
+
+  useEffect(() => {
+    if (submitted.current) return
+    submitted.current = true
+    submitToSheets({ nickname, petType, quizResult: resultType, answers })
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <PageContainer className="gap-6">
